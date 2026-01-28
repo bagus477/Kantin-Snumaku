@@ -1,0 +1,203 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contoh Login / Sign up</title>
+  <style>
+    :root{
+      --card-bg: rgba(255,255,255,0.08);
+      --input-bg: #d9d3d0;
+      --accent: #1db26a;
+      --muted: rgba(255,255,255,0.75);
+      --rounded: 14px;
+      font-family: 'Georgia', 'Times New Roman', serif;
+    }html,body{height:100%;margin:0}
+body{
+  background: linear-gradient(180deg,#2f49a6 0%, #1e2b54 100%);
+  display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;
+  color:white;
+}
+
+.container{
+  width:100%;max-width:420px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+  border-radius:18px;padding:28px;box-sizing:border-box;backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+}
+
+h1{font-size:48px;margin:0 0 18px;letter-spacing:0.5px}
+
+.card{
+  background:var(--card-bg);padding:18px;border-radius:12px
+}
+
+.input {
+  display:block;width:100%;padding:14px 16px;border-radius:10px;background:var(--input-bg);border:none;outline:none;
+  font-size:16px;color:#222;margin-bottom:12px;box-sizing:border-box
+}
+
+.btn{
+  display:block;width:100%;padding:12px 16px;border-radius:10px;background:var(--accent);color:white;border:none;font-weight:bold;font-size:20px;cursor:pointer;margin:10px 0
+}
+
+.social-btn{
+  display:flex;align-items:center;gap:12px;justify-content:center;
+  width:100%;
+  padding:12px 16px;
+  background:#e6e0de;
+  border-radius:10px;
+  margin-bottom:12px;
+  color:#1b1b1b;
+  font-weight:600;
+  font-size:18px;
+  box-sizing:border-box;
+}
+.social-btn img{width:22px;height:22px}
+
+.or{ text-align:center;color:rgba(255,255,255,0.8);margin:8px 0 }
+
+.link{color:#3bd1b0;text-decoration:none}
+
+.profile-row{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.avatar{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-weight:bold;color:rgba(255,255,255,0.9)}
+
+.muted-small{font-size:14px;color:rgba(255,255,255,0.85)}
+
+.password-row{position:relative}
+.view-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;font-weight:700;color:#333;cursor:pointer}
+
+.top-text{font-size:16px;margin-bottom:12px}
+
+@media (max-width:420px){
+  h1{font-size:42px}
+}
+
+  </style>
+</head>
+<body>
+  <div class="container" id="app"><!-- START: screen - enter email -->
+<div id="screen-email">
+  <h1>Hi!</h1>
+  <div class="card">
+    <input id="email-input" class="input" type="email" placeholder="Email" autocomplete="email" />
+    <button id="continue-email" class="btn">Continue</button>
+    <div class="or">Or</div>
+    <button class="social-btn" data-provider="facebook">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" />
+      Continue with Facebook
+    </button>
+    <button class="social-btn" data-provider="google">
+      <img src="google.jpeg" alt="Google" />
+      Continue with Google
+    </button>
+    <button class="social-btn" data-provider="apple">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" />
+      Continue with Apple
+    </button>
+    <div style="margin-top:8px;font-size:14px;color:#eaeaea">Don't have an account? <a href="#" id="goto-signup" class="link">Sign up</a></div>
+    <div style="margin-top:6px"><a href="#" id="forgot-from-email" class="link">Forgot your password?</a></div>
+  </div>
+</div>
+<!-- END: screen - enter email -->
+
+<!-- START: screen - login with password -->
+<div id="screen-login" style="display:none">
+  <h1>Log in</h1>
+  <div class="card">
+    <div class="profile-row">
+      <div class="avatar">D</div>
+      <div>
+        <div style="font-weight:700">Dhika Fausta</div>
+        <div class="muted-small">dhikafausta@gmail.com</div>
+      </div>
+    </div>
+
+    <div class="password-row">
+      <input id="password-input" class="input" type="password" placeholder="Password" />
+      <button id="toggle-view" class="view-toggle">View</button>
+    </div>
+
+    <button id="login-continue" class="btn">Continue</button>
+    <div style="margin-top:10px"><a href="#" id="forgot-login" class="link">Forgot your password?</a></div>
+  </div>
+</div>
+<!-- END: screen - login with password -->
+
+<!-- START: screen - sign up -->
+<div id="screen-signup" style="display:none">
+  <h1>Sign up</h1>
+  <div class="card">
+    <div class="top-text">Looks like you don't have an account. Let's create a new account for <br/><strong id="signup-email">you@example.com</strong></div>
+    <input id="name-input" class="input" type="text" placeholder="Name" />
+    <div class="password-row">
+      <input id="signup-password" class="input" type="password" placeholder="Password" />
+      <button id="toggle-view-signup" class="view-toggle">View</button>
+    </div>
+    <div style="font-size:13px;color:rgba(255,255,255,0.85);margin-bottom:10px">By selecting Agree and continue below, I agree to <a href="#" class="link">Terms of Service and Privacy Policy</a></div>
+    <button id="agree-continue" class="btn">Agree and continue</button>
+  </div>
+</div>
+<!-- END: screen - sign up -->
+
+  </div>  <script>
+    const emailInput = document.getElementById('email-input');
+    const continueBtn = document.getElementById('continue-email');
+    const screenEmail = document.getElementById('screen-email');
+    const screenLogin = document.getElementById('screen-login');
+    const screenSignup = document.getElementById('screen-signup');
+    const signupEmailText = document.getElementById('signup-email');
+
+    function mockCheckEmail(email){
+      if(!email) return null;
+      const e = email.trim().toLowerCase();
+      if(e.includes('@') && e.includes('.')){
+        return e.includes('gmail') ? 'existing' : 'new';
+      }
+      return 'invalid';
+    }
+
+    continueBtn.addEventListener('click', ()=>{
+      const status = mockCheckEmail(emailInput.value);
+      if(status === 'invalid'){
+        alert('Masukkan email yang valid.');
+        return;
+      }
+      if(status === 'existing'){
+        screenEmail.style.display = 'none';
+        screenSignup.style.display = 'none';
+        screenLogin.style.display = 'block';
+      } else {
+        signupEmailText.textContent = emailInput.value || 'you@example.com';
+        screenEmail.style.display = 'none';
+        screenLogin.style.display = 'none';
+        screenSignup.style.display = 'block';
+      }
+    });
+
+    document.getElementById('goto-signup').addEventListener('click', (ev)=>{ev.preventDefault(); signupEmailText.textContent = emailInput.value || 'you@example.com'; screenEmail.style.display='none'; screenSignup.style.display='block';});
+    document.getElementById('forgot-from-email').addEventListener('click',(ev)=>{ev.preventDefault(); alert('Flow lupa password — kirim email reset.');});
+    document.getElementById('forgot-login').addEventListener('click',(ev)=>{ev.preventDefault(); alert('Flow lupa password — kirim email reset.');});
+
+    const pass = document.getElementById('password-input');
+    document.getElementById('toggle-view').addEventListener('click', ()=>{
+      if(pass.type === 'password'){ pass.type = 'text'; this.textContent = 'Hide'; } else pass.type = 'password';
+    });
+    const passSignup = document.getElementById('signup-password');
+    document.getElementById('toggle-view-signup').addEventListener('click', ()=>{
+      if(passSignup.type === 'password'){ passSignup.type = 'text'; this.textContent = 'Hide'; } else passSignup.type = 'password';
+    });
+
+    document.getElementById('login-continue').addEventListener('click', ()=>{
+      window.location.href = 'home.html';
+    });
+
+    document.getElementById('agree-continue').addEventListener('click', ()=>{
+      window.location.href = 'home.html';
+    });
+
+    emailInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') continueBtn.click(); });
+
+    document.querySelectorAll('.social-btn').forEach(btn=>btn.addEventListener('click',()=>alert('Social sign-in demo: '+btn.dataset.provider)));
+  </script></body>
+</html>
