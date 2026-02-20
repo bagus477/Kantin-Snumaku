@@ -1,0 +1,202 @@
+.menu-page {
+    max-width: 1100px;
+    margin: 2rem auto 3rem;
+    padding: 0 3rem;
+}
+.kantin-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.kantin-logo-placeholder {
+    width: 110px;
+    height: 110px;
+    border-radius: 1rem;
+    background: #e5e7eb;
+}
+.kantin-name {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+.section-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 2.25rem 0 1.25rem;
+    text-align: left;
+}
+.menu-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+.menu-card {
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+.menu-card-body {
+    padding: 0.9rem 0.95rem 0.9rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+.menu-card-side {
+    width: 150px;
+    padding: 0.9rem 0.9rem 0.9rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+}
+.menu-card-image {
+    width: 100%;
+    height: 110px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.75rem;
+    flex-shrink: 0;
+}
+.menu-card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.menu-card-desc {
+    font-size: 0.8rem;
+    color: #6b7280;
+}
+.menu-card-bottom {
+    margin-top: 0.2rem;
+}
+.menu-card-price {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+.menu-card-add {
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #22c55e;
+    background: #ecfdf5;
+    color: #16a34a;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 1024px) {
+    .menu-page {
+        padding: 0 1.5rem;
+    }
+    .menu-row {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+@media (max-width: 768px) {
+    .menu-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .menu-card {
+        flex-direction: column;
+    }
+    .menu-card-image {
+        width: 100%;
+        height: 140px;
+    }
+}
+@media (max-width: 640px) {
+    .menu-page {
+        padding: 0 1rem;
+    }
+    .menu-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Modal detail menu */
+.menu-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+}
+
+.menu-modal {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 1.25rem;
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.45);
+    padding: 1.4rem 1.6rem 1.6rem;
+}
+
+.menu-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.menu-modal-close {
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.menu-modal-desc {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+}
+
+.menu-modal-price {
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+}
+
+.menu-modal-section {
+    margin-bottom: 0.85rem;
+}
+
+.menu-modal-section-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.menu-modal-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.menu-modal-option-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.menu-modal-add {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid #22c55e;
+    background: #22c55e;
+    color: #ecfdf5;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}

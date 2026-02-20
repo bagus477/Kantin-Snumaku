@@ -1,0 +1,297 @@
+.pay-main {
+  max-width: 960px;
+  margin: 96px auto 120px;
+  padding: 0 16px;
+}
+
+.pay-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.pay-card {
+  background: #e5e5e5;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.pay-card-header {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.pay-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-top: 1px solid #cbd5e1;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.pay-summary-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pay-summary-left .qty {
+  font-size: 0.9rem;
+}
+
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-name {
+  font-size: 0.95rem;
+}
+
+.pay-summary-price {
+  font-size: 0.95rem;
+}
+
+.pay-subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.pay-method-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.pay-method-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: #d4d4d4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qris-icon {
+  border-radius: 4px;
+}
+
+.user-icon {
+  border-radius: 999px;
+}
+
+.pay-method-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pay-method-label {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 6px 10px;
+}
+
+.pay-method-row.active .pay-method-label {
+  border: 2px solid #16a34a;
+}
+
+.pay-input {
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+
+.pay-footer {
+  background: #e5e5e5;
+  padding: 12px 0;
+  margin-top: 16px;
+}
+
+.pay-footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pay-total-label {
+  font-size: 0.9rem;
+}
+
+.pay-total-value {
+  font-weight: 600;
+}
+
+.pay-submit-btn {
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-submit-btn:hover {
+  background: #15803d;
+}
+
+/* Overlay pembayaran */
+.pay-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.pay-overlay-inner {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.6);
+}
+
+.qris-image {
+  display: block;
+  max-width: 320px;
+  width: 80vw;
+  height: auto;
+}
+
+.pay-success-card {
+  text-align: center;
+  padding: 24px 32px 32px;
+}
+
+.pay-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 16px;
+}
+
+.pay-success-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pay-success-text {
+  margin-bottom: 4px;
+}
+
+.pay-success-thanks {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.pay-success-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.pay-detail-card {
+  width: min(480px, 90vw);
+  padding: 24px 24px 28px;
+}
+
+.pay-detail-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.pay-detail-shop-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 4px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+}
+
+.pay-detail-shop-name {
+  font-size: 0.9rem;
+}
+
+.pay-detail-title {
+  font-weight: 700;
+  margin: 8px 0 12px;
+}
+
+.pay-detail-row,
+.pay-detail-total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.pay-detail-total-row {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+.pay-detail-close {
+  margin-top: 16px;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 999px;
+  border: none;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pay-detail-close:hover {
+  background: #15803d;
+}
+
+@media (max-width: 640px) {
+  .pay-main {
+    margin-top: 80px;
+  }
+
+  .pay-footer-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .pay-total {
+    text-align: left;
+  }
+
+  .pay-submit-btn {
+    width: 100%;
+  }
+}
