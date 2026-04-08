@@ -28,6 +28,11 @@ class LoginController extends Controller
         return view('auth.register-buyer');
     }
 
+    public function showPenjualRegister()
+    {
+        return view('auth.register-seller');
+    }
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -75,6 +80,28 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         return redirect()->route('pembeli.dashboard');
+    }
+
+    public function registerPenjual(Request $request)
+    {
+        $data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', 'unique:users,email'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+        ]);
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'role' => 'penjual',
+        ]);
+
+        Auth::login($user);
+
+        $request->session()->regenerate();
+
+        return redirect()->route('penjual.dashboard');
     }
 
     public function logout(Request $request)

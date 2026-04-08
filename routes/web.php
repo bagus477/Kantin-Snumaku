@@ -14,6 +14,10 @@ Route::get('/login/penjual', [LoginController::class, 'showPenjualLogin'])->name
 Route::get('/register/pembeli', [LoginController::class, 'showPembeliRegister'])->name('register.pembeli');
 Route::post('/register/pembeli', [LoginController::class, 'registerPembeli'])->name('register.pembeli.store');
 
+// Registrasi penjual
+Route::get('/register/penjual', [LoginController::class, 'showPenjualRegister'])->name('register.penjual');
+Route::post('/register/penjual', [LoginController::class, 'registerPenjual'])->name('register.penjual.store');
+
 Route::post('/login', [LoginController::class, 'login'])->name('login.process');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
